@@ -8,6 +8,14 @@ pipeline {
         AWS_DEFAULT_REGION    = "us-east-1"
     }
 
+    parameters {
+        string(name: 'instance_type', defaultValue: 't3.medium', description: 'EC2 instance type')
+        string(name: 'ami_id', defaultValue: 'ami-0156001f0548e90b1', description: 'AMI ID')
+        string(name: 'aws_region', defaultValue: 'us-east-1', description: 'AWS Region')
+        string(name: 'key_name', defaultValue: 'sai-key-pair-name', description: 'EC2 Key Pair')
+        string(name: 'vpc_id', defaultValue: 'vpc-019e65727b9d6b8e6', description: 'VPC ID to deploy into')
+    }
+
     stages {
 
         stage('Clone') {
