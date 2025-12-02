@@ -30,11 +30,7 @@ pipeline {
             steps {
                 sh """
                 terraform plan \
-                    -var instance_type=${instance_type} \
-                    -var ami_id=${ami_id} \
-                    -var aws_region=${aws_region} \
-                    -var key_name=${key_name} \
-                    -var vpc_id=${vpc_id} \
+                    -var bucketname=${bucketname} \
                     -out=tfplan
                 """
             }
