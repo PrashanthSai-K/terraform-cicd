@@ -18,17 +18,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git branch: 'main', url: 'https://github.com/PrashanthSai-K/terraform-cicd.git'
-                sh 'aws sts get-caller-identity'
-            }
-            post {
-                always { echo "Cloning stage completed" }
-                failure { echo "Cloning Failed" }
-                success { echo "Cloned Git repo" }
-            }
-        }
 
         stage('Init') {
             steps {
